@@ -30,9 +30,10 @@ parameters:
   generate: expression
   name: GENERIC_WEBHOOK_SECRET
   required: true
-  description: a BitBucket authorization secret
+- description: a BitBucket authorization secret
   displayName: Bitbucket login secret
-  name: SOURCE_SECRET
+  from: '[a-zA-Z0-9]{40}'
+  name: SOURCE_SECRET 
   required: true
   value: anteuzbitbucketkey
 objects:
