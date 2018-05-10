@@ -12,12 +12,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	@Autowired
 	public void ConfigureGlobalSecurity(AuthenticationManagerBuilder auth)
 				throws Exception {
-		auth.inMemoryAuthentication().withUser("anteuz").password("dummy").roles("USER", "ADMIN");
+		auth.inMemoryAuthentication().withUser("user").password("{noop}password").roles("USER", "ADMIN");
 	}
 	
 	@Override
 	protected void configure (HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/login").permitAll().antMatchers("/", "/*todo*/**").access("hasRole('USER')").and().formLogin();
+		http.authorizeRequests().antMatchers("/login", "/h2-console/**").permitAll().antMatchers("/", "/*todo*/**").access("hasRole('USER')").and().formLogin();
+		//todo only in test or dev
+		http.csrf().disable();
+		http.headers().frameOptions().disable();
 	}
 	
 }

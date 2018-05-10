@@ -17,15 +17,15 @@ public class TodoService {
 	private static int todoCount = 3;
 	
 	static {
-		todos.add(new Todo(1, "anteuz", "Learn Spring boot", new Date(), false));
-		todos.add(new Todo(2, "anteuz", "Learn Swagger", new Date(), false));
-		todos.add(new Todo(3, "anteuz", "Learn Microservices", new Date(), false));
+		todos.add(new Todo(1, "user", "Learn Spring boot", new Date(), false));
+		todos.add(new Todo(2, "user", "Learn Swagger", new Date(), false));
+		todos.add(new Todo(3, "user", "Learn Microservices", new Date(), false));
 	}
 	
 	public List<Todo> retrieveTodos(String user) {
 		List<Todo> filteredTodos = new ArrayList<Todo>();
 		for (Todo todo : todos) {
-			if(todo.getUser().equals(user)) {
+			if(todo.getUsername().equals(user)) {
 				filteredTodos.add(todo);
 			}
 		}

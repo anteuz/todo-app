@@ -5,14 +5,14 @@ Hi ${name }<br/>
 <form:form method="post" modelAttribute="todo">
 	<form:hidden path="id"/>
 	<fieldset class="form-group">
-		<form:label path="desc">Description</form:label>
-		<form:input path="desc" class="form-control" name="desc" type="text" required="required"/>
-		<form:errors path="desc" cssClass="text-warning"/>
+		<form:label path="description">Description</form:label>
+		<form:input path="description" class="form-control" name="description" type="text" required="required"/>
+		<form:errors path="description" cssClass="text-warning"/>
 	</fieldset>
 	
 	<fieldset class="form-group">
-		<form:label path="targetDate">Description</form:label>
-		<form:input path="targetDate" class="form-control" name="desc" type="date" required="required"/>
+		<form:label path="targetDate">Target date</form:label>
+		<form:input path="targetDate" class="form-control" name="targetDate" type="date" required="required"/>
 		<form:errors path="targetDate" cssClass="text-warning"/>
 	</fieldset>
 	 

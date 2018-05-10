@@ -2,14 +2,25 @@ package com.darkchitect.springboot.web.model;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.GenericGenerator;
+
+
+@Entity
 public class Todo {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @GenericGenerator(name = "native", strategy = "native")
 	private int id;
-	private String user;
+	private String username;
 	@Size(min=10, message="Please add at least 10 characters!")
-	private String desc;
+	private String description;
 	private Date targetDate;
 	private boolean isDone;
 	
@@ -17,11 +28,11 @@ public class Todo {
 		super();
 	}
 	
-	public Todo(int id, String user, String desc, Date targetDate, boolean isDone) {
+	public Todo(int id, String username, String description, Date targetDate, boolean isDone) {
 		super();
 		this.id = id;
-		this.user = user;
-		this.desc = desc;
+		this.username = username;
+		this.description = description;
 		this.targetDate = targetDate;
 		this.isDone = isDone;
 	}
@@ -31,17 +42,17 @@ public class Todo {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getUser() {
-		return user;
+	public String getUsername() {
+		return username;
 	}
-	public void setUser(String user) {
-		this.user = user;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-	public String getDesc() {
-		return desc;
+	public String getDescription() {
+		return description;
 	}
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	public Date getTargetDate() {
 		return targetDate;
@@ -85,7 +96,7 @@ public class Todo {
     public String toString() {
         return String.format(
                 "Todo [id=%s, user=%s, desc=%s, targetDate=%s, isDone=%s]", id,
-                user, desc, targetDate, isDone);
+                username, description, targetDate, isDone);
     }
 
 	
